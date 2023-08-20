@@ -60,7 +60,7 @@ noncomputable def homologyIso_lemma {C:Type _}[Category C][Abelian C]{X Y Z K H:
 variable (R:Type _) [Ring R]
 
 theorem homology_SQ_range_ker (X Y Z:ModuleCat R)(d1:X⟶ Y)(d2:Y⟶ Z)(w:d1≫ d2=0): homology d1 d2 w ≅ SQ (range d1) (ker d2) := by
-  let K : ModuleCat R := ker d2
+  let K : ModuleCat R := ModuleCat.of R (ker d2)
   let H := SQ (range d1) (ker d2)
   let k : K ⟶ Y := by apply Submodule.subtype
   let i : X ⟶ K := by

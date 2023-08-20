@@ -162,11 +162,11 @@ def SQ_den (A B:Submodule R X): Submodule R B := by
   repeat constructor; swap
   exact {x | Subtype.val x ∈ A }
   simp
-  intro a b
+  intro a _ b _
   apply AddSubsemigroup.add_mem'
   simp
   simp
-  intro r a
+  intro r a _
   apply smul_mem
 
 def mem_SQ_den (A B:Submodule R X)(x:B):x∈ SQ_den A B ↔ x.val ∈ A:= by
@@ -258,7 +258,7 @@ theorem SQ_hom_zero (p: map f B ≤ A') : SQ_hom fA fB = 0:= by
   intro a
   rw [SQ_hom_apply]
   simp
-  rw [Submodule.Quotient.quot_mk_eq_mk,Submodule.Quotient.mk_eq_zero,mem_SQ_den]
+  rw [Submodule.Quotient.mk_eq_zero,mem_SQ_den]
   simp
   apply p
   apply mem_image_of_mem
